@@ -7,6 +7,7 @@ import Datepick from '../../Components/Form/Datepick';
 import Reminder from '../../Components/Form/Reminder';
 import Addemoji from '../../Components/Form/Addemoji';
 import { db } from '../../firebase';
+import { IoChevronBackOutline } from "react-icons/io5";
 
 function Update() {
   const { id } = useParams();
@@ -101,6 +102,9 @@ function Update() {
                 backdropFilter: "blur(5px)",
                 width: '500px'
               }}>
+                 <div className="d-flex justify-content-start mt-2">
+                                <Link to={'/home'} className='text-dark'><IoChevronBackOutline className='fw-bolder' style={{ fontSize: '25px' }} /></Link>
+                              </div>
               <h3 className='text-center mt-3 fw-bold'>{details.emoji}
                 {details.name}
               </h3>
