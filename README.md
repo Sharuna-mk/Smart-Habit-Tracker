@@ -1,0 +1,6 @@
+-tailwind css,google font,react icons,mui
+-navbar-icon,add button,calendar,logout,notification
+-landing page
+-suggestion page which has 7 suggestion along with custom button
+-page not found
+-router setup main.jsx browser router import then wrap app component in browserrouter component

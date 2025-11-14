@@ -1,0 +1,22 @@
+.log{
+ 	padding: 0;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	background-repeat: no-repeat;
+	background:linear-gradient(180deg,rgb(143, 179, 247),white);
+	height: auto;
+    z-index: -2;
+}
+
+.log .card {
+       backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+
+}
+

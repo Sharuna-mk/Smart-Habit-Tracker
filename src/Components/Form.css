@@ -1,0 +1,46 @@
+.smartbg {
+	padding: 0;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	background-image: url('../assets/Blue Illustration Health & Wellness Presentation.png');
+	background-blend-mode: multiply;
+	background-color: rgba(150, 189, 240, 0.164);
+	background-size: cover;
+	height: auto;
+}
+.jelly button {
+	cursor: pointer;
+	position: relative;
+	padding: 10px 50px;
+	border-radius: 3rem;
+	line-height: 1rem;
+	font-size: 18px;
+	font-weight: 600;
+	border: 1px solid #b0d9ff;
+	color: white;
+	background-image: linear-gradient(180deg,rgba(154, 181, 239, 0.986), rgb(59, 135, 249) 100%);
+	box-shadow: 0 6px 10px rgba(150, 143, 244, 0.3);
+	transition: all 0.2s ease-in-out;
+}
+
+.jelly button:hover {
+	background-image: linear-gradient(180deg, #79aee8 0%, #215ed0 100%);
+	box-shadow: 0 8px 15px rgba(60, 130, 255, 0.35);
+	transform: translateY(-2px);
+}
+
+
+.jelly button:active {
+	transform: translateY(2px);
+	box-shadow: inset 0 3px 5px rgba(0, 70, 200, 0.3);
+	background-image: linear-gradient(180deg,rgba(154, 181, 239, 0.986), rgb(59, 135, 249) 100%)
+}
+
+
+.jelly button span {
+	color: white;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,56 @@
+.table-container {
+  padding: 20px;
+  border-radius: 12px;
+  width: 100%; 
+  background-color: #f5f5f5;
+  height: auto;
+}
+
+.pinterest {
+  border-collapse: separate;
+  border-spacing: 1px; 
+  width: 100%;
+  min-width: 600px;
+  background: transparent;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.pinterest th {
+  background-color: #fffbf5;
+  font-weight: 600;
+  color: #333;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.pinterest td {
+  padding: 12px 16px;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #ddd; 
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
+}
+
+.pinterest td:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.completed {
+  background-color: #ffe4e1;
+  border-color: #e60023;
+  color: #e60023;
+}
+
+.task-name {
+  font-weight: 500;
+  text-align: left;
+  padding-left: 12px;
+}
+
