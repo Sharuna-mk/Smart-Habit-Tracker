@@ -9,6 +9,7 @@ function Signup() {
 
     const[email,setEmail]=useState("");
     const[password,setPassword]=useState("");
+    const[confirmpassword,setConfirmPassword]=useState("");
     const[error,setError]=useState("")
     const {signUp} =useUserAuth()
     const navigate = useNavigate()
@@ -16,7 +17,9 @@ function Signup() {
     const handleSubmit=async (e)=>{
    e.preventDefault();
    setError("")
-   try{
+   if(password === confirmpassword){
+
+  try{
    await signUp(email,password);
    navigate("/login")
    }
@@ -24,6 +27,8 @@ function Signup() {
     setError(err.message)
    }
    
+   }
+ 
     };
   return (
     <>
@@ -44,8 +49,27 @@ function Signup() {
           <form action="" className='w-75' onSubmit={handleSubmit}>
               <input type="text" className='form-control mt-3' placeholder='enter your email'
               onChange={(e)=>setEmail(e.target.value)}/>
-            <input type="password" className='form-control mt-3' placeholder='enter your password'
+            <input type="password" className='form-control mt-3' placeholder='enter password'
+            value={password}
             onChange={(e)=>setPassword(e.target.value)}/>
+            <input type="password" className='form-control mt-3' placeholder='Confirm Password' value={confirmpassword}
+            onChange={(e)=>setConfirmPassword(e.target.value)}/>
+
+            {
+             password && confirmpassword && password === confirmpassword &&
+             <div>
+              <p className='text-success' >✅Password Match </p>
+              </div>
+              
+            }
+
+            {
+             password && confirmpassword &&  password !== confirmpassword &&
+             <div>
+              <p className='text-danger' >❌ Passwords do not match</p>
+              </div>
+              
+            }
               <div className='d-flex align-items-center justify-content-center'>
                 <button className='btn mt-4 fw-bold text-light ' style={{backgroundColor:'#355cfaff'}}>
             SignUp
