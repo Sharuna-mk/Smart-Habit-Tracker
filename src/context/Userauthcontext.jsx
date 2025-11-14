@@ -33,8 +33,7 @@ export function UserAuthContextProvider({children}){
         const unsubscribe=onAuthStateChanged(auth,(currentUser)=>{
             setUser(currentUser)
         });
-        return 
-            unsubscribe()
+        return ()=>unsubscribe()
 
     },[]);
     return (<UserAuthContext.Provider value={{user,signUp,logIn,logOut,googleSignIn}}>{children}</UserAuthContext.Provider>)
