@@ -166,8 +166,9 @@ const handleReset = async () => {
     text={formatTime(timeLeft)} 
           styles={buildStyles({
             pathColor: task.colorname || "#76a0f9ff",
-            textColor: task.colorname,
+            textColor:'black',
             trailColor: "#eee",
+            textSize:"10px"
           })}
         />
 <div className="d-flex justify-content-between  ms-5 me-5 mt-3">
