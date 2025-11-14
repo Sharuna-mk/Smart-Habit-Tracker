@@ -21,6 +21,9 @@ function Form() {
   const [colorBox, setColorBox] = useState("#FFFFFF")
   const [goal, setGoal] = useState(false)
 
+  const[colorChoose,setColorChoose]=useState("*please choose a color")
+  const[emojiChoose,setEmojiChoose]=useState("*please choose an emoji")
+
   const [details, setDetails] = useState(
     {
       name: "",
@@ -113,12 +116,17 @@ function Form() {
               </h3>
               <div className=" d-flex ">
                 <span className='mt-4'>
-                  <Addemoji chosenEmoji={details.emoji}
+                <button type='button' className='btn border-0' onClick={()=>setEmojiChoose()}>
+                    <Addemoji chosenEmoji={details.emoji}
                     setChosenEmoji={(emoji) => setDetails({ ...details, emoji })}
-                    showPicker={showPicker} setShowPicker={setShowPicker} /></span>
+                    showPicker={showPicker} setShowPicker={setShowPicker} />
+                </button>
+                    <p className='text-danger'>{emojiChoose}</p>
+                    </span>
+
                 <div className='w-100'>
                   <TextField name='name' value={details.name} onChange={(e) => setDetails({ ...details, name: e.target.value })}
-                    id="standard-basic" label="Name" className='mt-4 w-75' variant="standard" />
+                    id="standard-basic" label="Task name" className='mt-4 w-75' variant="standard" />
                   <TextField name='description' value={details.description}
                     onChange={(e) => setDetails({ ...details, description: e.target.value })}
                     id="standard-basic" label="Description" className='mt-2 w-75' variant="standard" />
@@ -129,11 +137,16 @@ function Form() {
                 <span className='fw-bold'>color</span>
                 <div className="color-picker-container">
                   <div className="color-display">
-                    <input name='colorname' type="color" onChange={(e) => {
+                   <button type='button' className='btn border-0' onClick={()=>{
+                    setColorChoose()
+                   }}>
+                     <input name='colorname' type="color" onChange={(e) => {
                       setColorBox(e.target.value);
                       setDetails({ ...details, colorname: e.target.value })
-                    }} value={colorBox} />
-
+                     }} value={colorBox} />
+                   </button>
+                  <p className='text-danger'>{colorChoose}</p>
+                     
                   </div>
                 </div>
               </div>
@@ -185,6 +198,7 @@ function Form() {
                         name='goalUnit' value={goal ? "other" : details.goalUnit}
                         onChange={handleGoalUnit}
                       >
+                        <option selected  style={{backgroundColor:'lightgrey'}}>Select Goal Unit 🎯</option>
                         <option value="kg">⚖️ kg</option>
                         <option value="cm">📏 cm</option>
                         <option value="mmHg">💨 mmHg</option>
@@ -235,6 +249,7 @@ function Form() {
                         name='goalUnit' value={goal ? "other" : details.goalUnit}
                         onChange={handleGoalUnit}
                       >
+                        <option selected  style={{backgroundColor:'lightgrey'}}>Select Goal Unit 🎯</option>
                         <option value="kg">⚖️ kg</option>
                         <option value="cm">📏 cm</option>
                         <option value="mmHg">💨 mmHg</option>
@@ -256,7 +271,7 @@ function Form() {
                     </div>
 
                   </div>
-                  <p className='text-end text-danger me-5 mt-2'>*min one count per day</p>
+                  <p className='text-end text-danger me-5 mt-1'>*min one count per day</p>
                 </div>
 
               }

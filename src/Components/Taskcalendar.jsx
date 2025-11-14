@@ -60,10 +60,12 @@ pdf.save('monthly_record.pdf')
   return (
     <>
    <div className="d-flex justify-content-between mt-2">
-     <button className='btn'  
-    ><Link to={'/home'} className='text-dark fw-bolder'><IoChevronBackOutline  style={{fontSize:'30px'}}/></Link></button>
+<Link to={'/home'} className='text-dark fw-bolder'><IoChevronBackOutline  style={{fontSize:'30px'}}/></Link>
+    <h3 className=' ms-5 mt-3 fst-italic fw-bolder'
+      style={{fontFamily:'Brush Script MT, Brush Script Std, cursive',fontSize:'30px'}}>Monthly Report</h3>
       <button className='btn' onClick={downloadRecord}><LuDownload  style={{fontSize:'30px'}}/></button>
    </div>
+  
   
     <div className="table-container" id='result'>
     <div className="d-flex justify-content-between">

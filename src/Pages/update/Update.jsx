@@ -182,6 +182,7 @@ function Update() {
                         name='goalUnit' value={goal ? "other" : details.goalUnit}
                         onChange={handleGoalUnit}
                       >
+                        <option selected  style={{backgroundColor:'lightgrey'}}>Select Goal Unit 🎯</option>
                         <option value="kg">⚖️ kg</option>
                         <option value="cm">📏 cm</option>
                         <option value="mmHg">💨 mmHg</option>
@@ -232,6 +233,7 @@ function Update() {
                         name='goalUnit' value={goal ? "other" : details.goalUnit}
                         onChange={handleGoalUnit}
                       >
+                        <option selected  style={{backgroundColor:'lightgrey'}}>Select Goal Unit 🎯</option>
                         <option value="kg">⚖️ kg</option>
                         <option value="cm">📏 cm</option>
                         <option value="mmHg">💨 mmHg</option>

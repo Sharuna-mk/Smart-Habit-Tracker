@@ -26,6 +26,7 @@ function TaskCard({ taskId }) {
 const [isRunning, setIsRunning] = useState(false);
 const [timeLeft, setTimeLeft] = useState(null);
 const [initialTime, setInitialTime] = useState(null);
+const[savevalue,setSaveValue]=useState('*Apply Changes')
 
   const formatTime = (seconds) => {
   const hrs = Math.floor(seconds / 3600);
@@ -143,7 +144,9 @@ const handleReset = async () => {
     setCurrentValue(newValue); // immediate UI update
   };
 
-  const handleSave = () => handleUpdate(currentValue);
+  const handleSave = () => {handleUpdate(currentValue);
+    setSaveValue();
+  };
 
   const handleDelete = async () => {
     await deleteDoc(doc(db, 'tasks', taskId));
@@ -212,19 +215,17 @@ const handleReset = async () => {
             min="0"
             max={task.goalValue}
           />
-          <button className='btn' style={{ backgroundColor: task.colorname }} onClick={() => setCurrentValue(Math.min(currentValue + 1, task.goalValue))}><FaPlus /></button>
+          <button className='btn' style={{ backgroundColor: task.colorname }} onClick={() => {setCurrentValue(Math.min(currentValue + 1, task.goalValue))}}><FaPlus /></button>
         </div>
         </div>
          
         }
-        
-
        
 
         <div className="d-flex justify-content-center ms-5 me-5 align-items-center mt-3">
           <button onClick={handleSave} className='btn rounded-2 text-light fw-bolder' style={{ backgroundColor: task.colorname }}>Save</button>
         </div>
-
+           <p className='text-danger text-center'>{savevalue}</p>
         <p className='fst-italic mt-3 text-start fw-bold'>{currentValue} / {task.goalValue} completed</p>
         {completedAt ? (
           <p className="completed-date">✅ Completed on {new Date(completedAt).toLocaleDateString()}</p>
