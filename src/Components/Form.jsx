@@ -9,7 +9,7 @@ import { collection, addDoc } from 'firebase/firestore';
 import { Link, useNavigate } from 'react-router-dom';
 import { useUserAuth } from '../context/Userauthcontext';
 import { IoChevronBackOutline } from "react-icons/io5";
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 
@@ -57,6 +57,10 @@ function Form() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(details);
+    if(details.name=="" || details.goalValue==""){
+      toast.error("❌Please enter details",{ position: "top-center" })
+    }
+    else{
     try {
       const result = await addDoc(collection(db, "tasks"), {
         ...details,
@@ -79,9 +83,10 @@ function Form() {
       console.log(error.message);
 
     }
-
   }
 
+  }
+  
 
 
 
