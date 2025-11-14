@@ -13,7 +13,7 @@ function About() {
         </div>
         
         <div className="d-flex justify-content-evenly">
-            <div><img src="https://i.pinimg.com/1200x/26/a1/91/26a191b3845f95c1cacc5a2efc795de6.jpg"  height={'700px'}
+            <div><img src="https://i.pinimg.com/1200x/26/a1/91/26a191b3845f95c1cacc5a2efc795de6.jpg"  height={'680px'}
             style={{marginLeft:'10px'}} alt="" /></div>
             <div>
 

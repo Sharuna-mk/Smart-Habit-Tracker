@@ -43,7 +43,8 @@ function Header() {
                     </Navbar.Brand>
                     <div className="d-flex align-items-center justify-content-between">
                     <button className='navtext btn fs-3  ms-2'><Link to={'/task-calendar'}><FaCalendarAlt /></Link></button>
-                        <Link to={'/form'} className=' navtext btn fs-4 ms-2'><IoAddCircle /></Link>
+                        <Link to={'/form'} className='navtext btn fs-4 ms-2'
+                        ><IoAddCircle /></Link>
                         <button className=' btn fs-4 ms-2' ><Link to={'/notification'} className="text-decoration-none">🔔</Link></button>
                         <button className=' navtext btn fw-bold ms-2'><Link to={'/about'} className="text-decoration-none fw-bolder"
                         style={{color:'blue'}}>
