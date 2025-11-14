@@ -12,6 +12,7 @@ import Update from './Pages/update/Update'
 import Taskcalendar from './Components/Taskcalendar'
 import NotificationList from './Pages/NotificationList'
 import About from './Pages/About'
+import ResetPass from './Pages/ResetPass'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
     <UserAuthContextProvider>
       <Routes>
       <Route path='/login' element={<Login/>}/>
+      <Route path='/forgotpassword' element={<ResetPass/>}/>
       <Route path='/register' element={ <Signup/>}/>
       <Route path='/home' element={<Protectedroute><Landingpage/></Protectedroute>}/>
       <Route path='/task-calendar' element={<Protectedroute><Taskcalendar/></Protectedroute>}/>

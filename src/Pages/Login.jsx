@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import GoogleButton from 'react-google-button'
 import { useUserAuth } from '../context/Userauthcontext';
-import Alert from '@mui/material/Alert';
 import log from '../assets/log.png'
+import { Alert } from 'react-bootstrap';
+
 
 function Login() {
         const[email,setEmail]=useState("");
@@ -34,6 +35,10 @@ function Login() {
                 setError(err.message)
             }
         }
+       const handleReset=()=>{
+        navigate("/forgotpassword")
+        
+       }
   return (
     <>
        <div className="log" >
@@ -57,6 +62,12 @@ function Login() {
             <input type="password" className='form-control mt-3' 
              onChange={(e)=>setPassword(e.target.value)}
             placeholder='enter your password'/>
+            <div className='d-flex justify-content-end'  >
+                 <button type='button' className=" btn border-0 text-primary" onClick={handleReset}>
+                    <small>  Forgot Password?</small>
+                   </button>
+            </div>
+           
             <div className='d-flex justify-content-center'>
            <button className='btn mt-4 fw-bold text-light' style={{backgroundColor:'#355cfaff'}}>
             LogIn

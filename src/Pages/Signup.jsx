@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useUserAuth } from '../context/Userauthcontext';
-import Alert from '@mui/material/Alert'
 import log from '../assets/log.png'
+import { Alert } from 'react-bootstrap';
+
 
 function Signup() {
 
