@@ -40,10 +40,14 @@ function Login() {
        <div className="container">
         <div className="row">
             <div className="col-6 mt-5">
-                  <img src={log} height={'650px'} alt="" />
+                <h1 className="fw-bolder " 
+                style={{fontFamily:'Brush Script MT, Brush Script Std, cursive',fontSize:'30px',marginLeft:'10px'}}
+                >Smart habit tracker</h1>
+                  <img src={log} height={'650px'} alt="" className='mt-1' />
             </div>
-            <div className="col-6" style={{marginTop:'100px'}}>
-                 <div className="card w-75 d-flex align-items-center p-4">
+            
+            <div className="col-6" style={{marginTop:'180px'}}>
+                 <div className="card w-75 d-flex align-items-center justify-content-center ms-5 p-4">
             <h2 className='text-center fw-bold'>Login</h2>
             {error && <Alert variant='danger'>{error}</Alert>}
             <form onSubmit={handleSubmit} className='w-75'>
