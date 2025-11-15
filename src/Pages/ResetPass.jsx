@@ -27,8 +27,8 @@ function ResetPass() {
   return (
     <div>
 
-        <div className="d-flex align-items-center justify-content-center mt-5">
-            <div className="card w-25">
+        <div className="log d-flex align-items-center justify-content-center">
+            <div className="card w-25" style={{marginTop:'-150px'}} >
                 <h2 className="text-center mt-5 fw-bolder">Forgot Password</h2>
                 <form className='p-5' onSubmit={handleSubmit}>
                     {error && <Alert variant='danger'>{error}</Alert>}

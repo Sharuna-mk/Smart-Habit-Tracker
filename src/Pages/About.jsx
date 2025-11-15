@@ -9,7 +9,7 @@ function About() {
        
        <div>
         <div className="d-flex justify-content-start mt-2">
-            <button className='btn'><Link to={'/home'}><IoChevronBackOutline className="text-dark"style={{fontSize:'25px'}}/></Link></button>
+            <button className='btn border-0'><Link to={'/home'}><IoChevronBackOutline className="text-dark"style={{fontSize:'25px'}}/></Link></button>
         </div>
         
         <div className="d-flex justify-content-evenly">
