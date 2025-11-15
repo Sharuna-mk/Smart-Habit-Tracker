@@ -9,7 +9,8 @@ import { useNavigate } from 'react-router-dom';
 import { db } from '../../firebase';
 import { RiResetLeftFill } from "react-icons/ri";
 import { CiPause1 } from "react-icons/ci";
-import { BsFillSkipStartFill } from "react-icons/bs";
+import { VscDebugStart } from "react-icons/vsc";
+
 
 
 
@@ -180,7 +181,7 @@ const handleReset = async () => {
     onClick={handleStart}
     disabled={isRunning}
   >
-    <BsFillSkipStartFill />
+   <VscDebugStart />
   </button>
   <button
     className='btn bg-danger fw-bold text-light'
