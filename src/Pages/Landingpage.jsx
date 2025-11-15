@@ -91,7 +91,7 @@ function Landingpage() {
                 </div>
                 <div className="d-flex me-4">
                   <p className='fw-bold'>{task.streak >0 && task.updatedValue==task.goalValue ? <span  style={{ fontSize: '30px' }}>🔥</span> : null}</p>
-                  <button className='btn'><img src={updateIcon} height={'40px'} width={'40px'}
+                  <button className='btn border-0'><img src={updateIcon} height={'40px'} width={'40px'}
                   alt="update" onClick={()=> handleUpdateTask(task.id)} /></button>
               
                  
