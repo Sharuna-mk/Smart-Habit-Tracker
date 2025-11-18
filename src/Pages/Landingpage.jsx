@@ -53,10 +53,9 @@ function Landingpage() {
   if (!user) return;
   const q = query(collection(db, "tasks"), where("userId", "==", user.uid));
   const unsubscribe = onSnapshot(q, (querySnapshot) => {
-    const taskList = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+  const taskList = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     setTasks(taskList);
   });
-
   return () => unsubscribe(); 
 }, [user]);
 

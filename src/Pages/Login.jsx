@@ -52,7 +52,7 @@ function Login() {
             </div>
             
             <div className="col-6" style={{marginTop:'180px'}}>
-                 <div className="card w-75 d-flex align-items-center justify-content-center ms-5 p-4">
+            <div className="card w-75 d-flex align-items-center justify-content-center ms-5 p-4">
             <h2 className='text-center fw-bold'>Login</h2>
             {error && <Alert variant='danger'>{error}</Alert>}
             <form onSubmit={handleSubmit} className='w-75'>
@@ -76,7 +76,7 @@ function Login() {
             </form>
             <p className='mt-3 '>Don't have an account? <Link to={'/register'}>Sign Up</Link></p>
              <div className="mt-3">
-                <GoogleButton className="g-btn" type="dark" onClick={handleGoogleSignIn}/>
+                <GoogleButton className="g-btn" type="dark" onClick={handleGoogleSignIn} style={{width:'200px'}}/>
              </div>
         </div>
 

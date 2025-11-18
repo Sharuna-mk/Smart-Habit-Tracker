@@ -9,14 +9,26 @@
 	background:linear-gradient(180deg,rgb(143, 179, 247),white);
 	height: auto;
     z-index: -2;
+	width: 100%;
 }
 
 .log .card {
-       backdrop-filter: blur(16px) saturate(180%);
+    backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
     background-color: rgba(255, 255, 255, 0.75);
     border-radius: 12px;
     border: 1px solid rgba(209, 213, 219, 0.3);
+	height: auto;
+	width: 100%;
 
+}
+
+@media (max-width: 600px) {
+
+	.container{
+		padding: 10px;
+		font-size: 14px;
+	}
+	
 }
 

@@ -80,27 +80,26 @@ else {
                                 height="30"
                                 className="d-inline-block align-top"
                             />{' '}
-                            <span className='navtext fw-bolder'
-                             style={{fontFamily:'Brush Script MT, Brush Script Std, cursive',fontSize:'25px'}}>Smart habit Tracker</span>
+                            <span className='fw-bolder text-primary'
+                             style={{fontSize:'20px'}}>Smart habit Tracker</span>
 
                         </div>
 
                     </Navbar.Brand>
                     <div className="d-flex align-items-center justify-content-between">
-                         <Link to={'/form'} className='navtext btn fs-4 ms-2'
-                        ><IoAddCircle /></Link>
-                    <button className='navtext btn fs-3  ms-2'><Link to={'/task-calendar'}><FaCalendarAlt /></Link></button>
+                         <Link to={'/form'} className='navtext btn fs-4 ms-2 me-3'
+                        ><IoAddCircle/></Link>
+                  <Link to={'/task-calendar'} className='ms-2 fs-3 me-3'><FaCalendarAlt /></Link>
     
-                        <button className=' btn fs-4 ms-2' ><Link to={'/notification'} className="text-decoration-none">🔔</Link></button>
-                        <button className=' navtext btn fw-bold ms-2 border-0'><Link to={'/about'} className="text-decoration-none fw-bolder"
-                        style={{color:'blue'}}>
-                        about</Link></button>
+                        <Link to={'/notification'} className="text-decoration-none ms-3 me-2 fs-3 ">🔔</Link>
+                        <Link to={'/about'} className="text-decoration-none fw-bolder text-primary ms-3 me-3">
+                        about</Link>
                         {/* <button className='btn bg-primary text-light fw-bold ms-5'
                         onClick={handleLogout}>Logout</button> */}
 
 
                         <Dropdown>
-      <Dropdown.Toggle  className='btn border-0' style={{backgroundColor:'rgb(206, 214, 248)',color:'blue'}} id="dropdown-basic">
+      <Dropdown.Toggle  className='btn border-0 text-primary ms-2' style={{backgroundColor:'rgb(206, 214, 248)'}} id="dropdown-basic">
       <FaRegCircleUser className='fs-5'/>
       </Dropdown.Toggle>
 
