@@ -55,7 +55,7 @@ function Form() {
       setDetails({ ...details, goalUnit: value });
     }
   };
-  
+  //inorder to seperate l task for each user
   const { user } = useUserAuth()
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -67,7 +67,6 @@ function Form() {
       try {
         const result = await addDoc(collection(db, "tasks"), {
           ...details,
-          //inorder to seperate l task for each user
           userId: user?.uid,
           userEmail: user?.email,
           completedDates: details.completedDates || []
@@ -92,8 +91,11 @@ function Form() {
   }
   return (
     <>
+
       <form>
+
         <div className='smartbg'>
+
           <div className='d-flex  p-5 text-center justify-content-center'>
             <div className="card shadow"
               style={{
@@ -145,11 +147,13 @@ function Form() {
                 </div>
               </div>
 
+
               {/* type */}
 
               <div className='mt-2 text-start ms-5 fw-bold' >
                 Habit Type
                 <div className='d-flex justify-content-evenly mt-3'>
+
 
                   <div className="jelly" >
                     <button type='button'
@@ -271,6 +275,7 @@ function Form() {
                 <Reminder details={details} reminder={details.reminderTime}
                   setReminder={(time) => setDetails({ ...details, remider: time })} />
               </div>
+
 
               {/* habit term */}
               <div className="d-flex justify-content-between">

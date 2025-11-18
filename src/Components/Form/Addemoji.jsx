@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Picker from 'emoji-picker-react';
 import { MdAdd } from "react-icons/md";
 
 function Addemoji({ chosenEmoji, setChosenEmoji,
   showPicker, setShowPicker }) {
 
-  const onEmojiClick = (emojiObject) => {
+  const onEmojiClick = (event, emojiObject) => {
     setChosenEmoji(emojiObject.emoji);
     setShowPicker(false);
   };
