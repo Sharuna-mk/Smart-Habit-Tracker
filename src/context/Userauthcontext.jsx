@@ -1,47 +1,49 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { createUserWithEmailAndPassword,
-         signInWithEmailAndPassword,
-         signOut,onAuthStateChanged,
-         GoogleAuthProvider,
-         signInWithPopup,sendPasswordResetEmail
-        } from "firebase/auth";
+//authentication methods
+import {
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    signOut, onAuthStateChanged,
+    GoogleAuthProvider,
+    signInWithPopup, sendPasswordResetEmail
+} from "firebase/auth";
 import { auth } from "../firebase";
 
-const UserAuthContext= createContext();
+const UserAuthContext = createContext();
 
-export function UserAuthContextProvider({children}){
+export function UserAuthContextProvider({ children }) {
 
-    const [user,setUser]=useState("");
-     
-    function signUp(email,password){
-        return createUserWithEmailAndPassword(auth,email,password)
+    const [user, setUser] = useState("");
+
+    function signUp(email, password) {
+        return createUserWithEmailAndPassword(auth, email, password)
     }
-    function logIn(email,password){
-        return signInWithEmailAndPassword(auth,email,password)
+    function logIn(email, password) {
+        return signInWithEmailAndPassword(auth, email, password)
     }
 
-    function logOut(){
+    function logOut() {
         return signOut(auth)
     }
 
-    function googleSignIn(){
-        const  googleAuthProvider= new GoogleAuthProvider();
-        return signInWithPopup(auth,googleAuthProvider)
+    function googleSignIn() {
+        const googleAuthProvider = new GoogleAuthProvider();
+        return signInWithPopup(auth, googleAuthProvider)
     }
 
-     function resetPassword(email){
-        return sendPasswordResetEmail(auth,email)
-     }
-
-    useEffect(()=>{
-        const unsubscribe=onAuthStateChanged(auth,(currentUser)=>{
+    function resetPassword(email) {
+        return sendPasswordResetEmail(auth, email)
+    }
+//manage user
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser)
         });
-        return ()=>unsubscribe()
+        return () => unsubscribe()
 
-    },[]);
-    return (<UserAuthContext.Provider value={{user,signUp,logIn,logOut,googleSignIn,resetPassword}}>{children}</UserAuthContext.Provider>)
+    }, []);
+    return (<UserAuthContext.Provider value={{ user, signUp, logIn, logOut, googleSignIn, resetPassword }}>{children}</UserAuthContext.Provider>)
 }
-export function useUserAuth(){
+export function useUserAuth() {
     return useContext(UserAuthContext)
 } 

@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 function Reminder({ details, reminder, setReminder }) {
   const [toggled, setToggled] = useState(false);
   const [time, setTime] = useState(reminder || "08:00");
-  const firedRef = useRef(false);
+  // const firedRef = useRef(false);
 
   const showToastMessage = (time) => {
     toast.success(`Reminder set at ${time}!`,
@@ -15,24 +15,24 @@ function Reminder({ details, reminder, setReminder }) {
     setReminder(time);
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const now = new Date();
-      const [remHour, remMin] = time.split(":").map(Number);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     const now = new Date();
+  //     const [remHour, remMin] = time.split(":").map(Number);
 
-      const currentHour = now.getHours();
-      const currentMinute = now.getMinutes();
+  //     const currentHour = now.getHours();
+  //     const currentMinute = now.getMinutes();
 
-      if (currentHour === remHour && currentMinute === remMin && !firedRef.current) {
-        toast.info(`Get started !You have to complete `, { position: "top-center" });
-        firedRef.current = true;
-      } else if (currentHour !== remHour || currentMinute !== remMin) {
-        firedRef.current = false; // reset for next day
-      }
-    }, 1000);
+  //     if (currentHour === remHour && currentMinute === remMin && !firedRef.current) {
+  //       toast.info(`Get started !You have to complete `, { position: "top-center" });
+  //       firedRef.current = true;
+  //     } else if (currentHour !== remHour || currentMinute !== remMin) {
+  //       firedRef.current = false; // reset for next day
+  //     }
+  //   }, 1000);
 
-    return () => clearInterval(interval);
-  }, [time]);
+  //   return () => clearInterval(interval);
+  // }, [time]);
 
 
   return (

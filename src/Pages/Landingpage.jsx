@@ -53,6 +53,7 @@ function Landingpage() {
   if (!user) return;
   const q = query(collection(db, "tasks"), where("userId", "==", user.uid));
   const unsubscribe = onSnapshot(q, (querySnapshot) => {
+    //convert firestore obj into js obj
   const taskList = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     setTasks(taskList);
   });

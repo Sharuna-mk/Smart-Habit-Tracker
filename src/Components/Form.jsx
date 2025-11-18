@@ -21,14 +21,14 @@ function Form() {
   const [colorBox, setColorBox] = useState("#FFFFFF")
   const [goal, setGoal] = useState(false)
 
-  const[colorChoose,setColorChoose]=useState("*please choose a color")
-  const[emojiChoose,setEmojiChoose]=useState("*please choose an emoji")
+  const [colorChoose, setColorChoose] = useState("*please choose a color")
+  const [emojiChoose, setEmojiChoose] = useState("*please choose an emoji")
 
   const [details, setDetails] = useState(
     {
       name: "",
       description: "",
-      emoji: "🚶",
+      emoji: "",
       colorname: "#8d9de243",
       goalPeriod: "daily",
       goalValue: "",
@@ -55,51 +55,45 @@ function Form() {
       setDetails({ ...details, goalUnit: value });
     }
   };
-  //inorder to seperate l task for each user
+  
   const { user } = useUserAuth()
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(details);
-    if(details.name=="" || details.goalValue==""){
-      toast.error("❌Please enter details",{ position: "top-center" })
+    if (details.name == "" || details.goalValue == "") {
+      toast.error("❌Please enter details", { position: "top-center" })
     }
-    else{
-    try {
-      const result = await addDoc(collection(db, "tasks"), {
-        ...details,
-        userId: user?.uid,
-        userEmail: user?.email,
-        completedDates: details.completedDates || []
-      });
-      console.log(result);
+    else {
+      try {
+        const result = await addDoc(collection(db, "tasks"), {
+          ...details,
+          //inorder to seperate l task for each user
+          userId: user?.uid,
+          userEmail: user?.email,
+          completedDates: details.completedDates || []
+        });
+        console.log(result);
 
-      await addDoc(collection(db, "notifications"), {
-        message: `🆕 Task "${details.name}" created successfully!`,
-        type: "success",
-        userId: user?.uid,
-        createdAt: new Date(),
-      });
-      navigate('/home')
+        await addDoc(collection(db, "notifications"), {
+          message: `🆕 Task "${details.name}" created successfully!`,
+          type: "success",
+          userId: user?.uid,
+          createdAt: new Date(),
+        });
+        navigate('/home')
 
+      }
+      catch (error) {
+        console.log(error.message);
+
+      }
     }
-    catch (error) {
-      console.log(error.message);
 
-    }
   }
-
-  }
-  
-
-
-
   return (
     <>
-
       <form>
-
         <div className='smartbg'>
-
           <div className='d-flex  p-5 text-center justify-content-center'>
             <div className="card shadow"
               style={{
@@ -116,13 +110,13 @@ function Form() {
               </h3>
               <div className=" d-flex ">
                 <span className='mt-4'>
-                <button type='button' className='btn border-0' onClick={()=>setEmojiChoose()}>
+                  <button type='button' className='btn border-0' onClick={() => setEmojiChoose()}>
                     <Addemoji chosenEmoji={details.emoji}
-                    setChosenEmoji={(emoji) => setDetails({ ...details, emoji })}
-                    showPicker={showPicker} setShowPicker={setShowPicker} />
-                </button>
-                    <p className='text-danger'>{emojiChoose}</p>
-                    </span>
+                      setChosenEmoji={(emoji) => setDetails({ ...details, emoji })}
+                      showPicker={showPicker} setShowPicker={setShowPicker} />
+                  </button>
+                  <p className='text-danger'>{emojiChoose}</p>
+                </span>
 
                 <div className='w-100'>
                   <TextField name='name' value={details.name} onChange={(e) => setDetails({ ...details, name: e.target.value })}
@@ -137,27 +131,25 @@ function Form() {
                 <span className='fw-bold'>color</span>
                 <div className="color-picker-container">
                   <div className="color-display">
-                   <button type='button' className='btn border-0' onClick={()=>{
-                    setColorChoose()
-                   }}>
-                     <input name='colorname' type="color" onChange={(e) => {
-                      setColorBox(e.target.value);
-                      setDetails({ ...details, colorname: e.target.value })
-                     }} value={colorBox} />
-                   </button>
-                  <p className='text-danger'>{colorChoose}</p>
-                     
+                    <button type='button' className='btn border-0' onClick={() => {
+                      setColorChoose()
+                    }}>
+                      <input name='colorname' type="color" onChange={(e) => {
+                        setColorBox(e.target.value);
+                        setDetails({ ...details, colorname: e.target.value })
+                      }} value={colorBox} />
+                    </button>
+                    <p className='text-danger'>{colorChoose}</p>
+
                   </div>
                 </div>
               </div>
-
 
               {/* type */}
 
               <div className='mt-2 text-start ms-5 fw-bold' >
                 Habit Type
                 <div className='d-flex justify-content-evenly mt-3'>
-
 
                   <div className="jelly" >
                     <button type='button'
@@ -198,7 +190,7 @@ function Form() {
                         name='goalUnit' value={goal ? "other" : details.goalUnit}
                         onChange={handleGoalUnit}
                       >
-                        <option selected  style={{backgroundColor:'lightgrey'}}>Select Goal Unit 🎯</option>
+                        <option selected style={{ backgroundColor: 'lightgrey' }}>Select Goal Unit 🎯</option>
                         <option value="kg">⚖️ kg</option>
                         <option value="cm">📏 cm</option>
                         <option value="mmHg">💨 mmHg</option>
@@ -249,7 +241,7 @@ function Form() {
                         name='goalUnit' value={goal ? "other" : details.goalUnit}
                         onChange={handleGoalUnit}
                       >
-                        <option selected  style={{backgroundColor:'lightgrey'}}>Select Goal Unit 🎯</option>
+                        <option selected style={{ backgroundColor: 'lightgrey' }}>Select Goal Unit 🎯</option>
                         <option value="kg">⚖️ kg</option>
                         <option value="cm">📏 cm</option>
                         <option value="mmHg">💨 mmHg</option>
@@ -280,7 +272,6 @@ function Form() {
                   setReminder={(time) => setDetails({ ...details, remider: time })} />
               </div>
 
-
               {/* habit term */}
               <div className="d-flex justify-content-between">
 
@@ -304,7 +295,7 @@ function Form() {
             </div>
           </div>
         </div>
-        <ToastContainer/>
+        <ToastContainer />
       </form>
 
     </>
