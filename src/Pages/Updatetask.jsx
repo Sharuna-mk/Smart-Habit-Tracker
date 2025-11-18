@@ -15,21 +15,7 @@ useEffect(() => {
   const unsubscribe = onSnapshot(taskRef, async (docSnap) => {
     if (docSnap.exists()) {
       const data = docSnap.data();
-      const lastUpdated = data.lastUpdatedDate ? data.lastUpdatedDate.split("T")[0] : null;
-      
-
-      // reset daily progress only if the date has changed
-      if (lastUpdated !== today) {
-        // avoid setting state before Firestore finishes
-        await updateDoc(taskRef, {
-          updatedValue: 0,
-          completedAt: null,
-          lastUpdatedDate: today,
-        });
-        setTask({ ...data, updatedValue: 0, completedAt: null, lastUpdatedDate: today });
-      } else {
-        setTask({ ...data });
-      }
+      setTask(docSnap.data());
     }
   });
 

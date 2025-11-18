@@ -37,9 +37,9 @@ function Taskcalendar() {
     return () => unsubscribe();
   }, [user]);
 
-  const getCompletedDay = (completedAt) => {
-    if (!completedAt) return null;
-    return new Date(completedAt).getDate(); // string or number
+  const getCompletedDay = (completedDates) => {
+    if (!Array.isArray(completedDates)) return null;
+    return completedDates.map(date => new Date(date).getDate()); // string or number
   };
   const currentMonthName = new Date().toLocaleString('en-US', { month: 'long' });
   console.log(currentMonthName);
@@ -93,16 +93,16 @@ function Taskcalendar() {
             ) : (
               tasks.map((task) => (
                 (() => {
-                  const completedDay = getCompletedDay(task.completedAt);
+                  const completedDay = getCompletedDay(task.completedDates);
                   return (
                     <tr key={task.id}>
                       <td className='fw-bolder'>{task.emoji} <span style={{ fontFamily: 'Brush Script MT, Brush Script Std, cursive', fontSize: '20px' }}> {task.name}</span></td>
                       {daysnum.map((day) => (
                         <td
                           key={day}
-                          style={day === completedDay ? { backgroundColor: task.colorname } : {}}
+                          style={completedDay.includes(day) ? { backgroundColor: task.colorname } : {}}
                         >
-                          {day !== completedDay && <RxCross2 className='text-danger' />}
+                         
                         </td>
                       ))}
                     </tr>

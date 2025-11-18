@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../Components/Header';
-import { collection, onSnapshot, query, where } from 'firebase/firestore';
+import { collection, onSnapshot, query, where, doc, updateDoc } from 'firebase/firestore';
 import { db } from '../firebase'; 
 import updateIcon from '../assets/update.png';
 import { useNavigate } from 'react-router-dom';
@@ -59,6 +59,31 @@ function Landingpage() {
   });
   return () => unsubscribe(); 
 }, [user]);
+
+//task reset daily
+useEffect(() => {
+  if (!tasks || tasks.length === 0) return;
+
+  const today = new Date().toISOString().split("T")[0];
+
+  tasks.forEach(async (task) => {
+    const lastUpdated = task.lastUpdatedDate
+      ? task.lastUpdatedDate.split("T")[0]
+      : null;
+
+    if (lastUpdated !== today) {
+      const taskRef = doc(db, "tasks", task.id);
+
+      await updateDoc(taskRef, {
+        updatedValue: 0,
+        completedAt: null,
+        lastUpdatedDate: today,
+      });
+    }
+  });
+
+}, [tasks]);
+
 
 
   const handleUpdateTask=(id)=>{
