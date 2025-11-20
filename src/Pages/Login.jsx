@@ -78,12 +78,12 @@ function Login() {
                                 <p className='mt-3 '>Don't have an account? <Link to={'/register'}>Sign Up</Link></p>
                                 <div className='d-flex align-items-center mt-2'>
                                     <hr style={{ width: '150px' }} />
-                                    <span>OR</span>
+                                    <span className='ms-2 me-2'>OR</span>
                                     <hr style={{ width: '150px' }} />
                                 </div>
 
                                 <div className="mt-2">
-                                    <GoogleButton className="g-btn" type="dark" onClick={handleGoogleSignIn} style={{ width: '200px',height:'50px',borderRadius:'1px' }} />
+                                    <GoogleButton className="g-btn" type="dark" onClick={handleGoogleSignIn} style={{ width: '200px',height:'50px',borderRadius:'1px',backgroundColor:'#4d6ff3ff' }} />
                                 </div>
                             </div>
 
