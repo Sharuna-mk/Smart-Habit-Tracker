@@ -63,7 +63,7 @@ function NotificationList() {
         </button>
       </div>
       <div className="d-flex justify-content-center">
-        <div className="card shadow mt-5 w-75">
+        <div className="notificationcard card shadow mt-5 w-75">
           <h4 className="text-center mb-3 fw-bolder mt-5" style={{ color: '#02081bff' }}>
             Notifications
           </h4>
@@ -85,7 +85,10 @@ function NotificationList() {
                   borderRadius: "10px",
                   padding: "10px 15px",
                   marginBottom: "10px",
+                  marginLeft:'50px',
+                  marginRight:'50px',
                   boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+                  
                 }}
               >
                 <p className="m-0">{notif.message}</p>

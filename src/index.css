@@ -9,10 +9,6 @@
 }
 
 
-.notification{
-  background: linear-gradient(321deg,rgb(159, 169, 235),white);
-  height: 100vh;
-}
 
 .toggle-btn{
   background-color: #b7b9ba;
@@ -51,7 +47,7 @@
 
 
 .goal-select {
-    background: linear-gradient(180deg,rgba(154, 181, 239, 0.986), rgb(59, 135, 249) 100%);
+    background: linear-gradient(180deg,rgba(183, 198, 230, 0.986), rgb(108, 156, 229) 100%);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,0.3);
     border-radius: 12px;

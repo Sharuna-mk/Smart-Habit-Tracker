@@ -1,34 +1,39 @@
 .log{
  	padding: 0;
 	margin: 0;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	overflow: hidden;
 	min-height: 100vh;
 	background-repeat: no-repeat;
-	background:linear-gradient(180deg,rgb(143, 179, 247),white);
-	height: auto;
+	background:linear-gradient(180deg,rgb(135, #eef2ff, #f8fafc));
+	height:auto;
     z-index: -2;
 	width: 100%;
 }
 
 .log .card {
-    backdrop-filter: blur(16px) saturate(180%);
+    backdrop-filter: blur(16px)  saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
-    background-color: rgba(255, 255, 255, 0.75);
+    background-color: rgba(240, 244, 255, 0.75);
     border-radius: 12px;
     border: 1px solid rgba(209, 213, 219, 0.3);
 	height: auto;
 	width: 100%;
-
-}
-
-@media (max-width: 600px) {
-
-	.container{
-		padding: 10px;
-		font-size: 14px;
-	}
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 	
+
 }
+.notification{
+  background: linear-gradient(321deg,rgb(227, 230, 240),rgb(224, 230, 246));
+  height: 100vh;
+}
+
+.notificationcard{
+	 backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+
+}
+
 

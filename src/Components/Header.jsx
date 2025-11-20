@@ -82,7 +82,7 @@ function Header() {
                 className="d-inline-block align-top"
               />{' '}
               <span className='fw-bolder text-primary'
-                style={{ fontSize: '20px' }}>Smart habit Tracker</span>
+                style={{ fontSize: '20px',fontFamily:'roboto' }}>Smart habit Tracker</span>
 
             </div>
 

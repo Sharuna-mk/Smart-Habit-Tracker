@@ -16,7 +16,7 @@ function Datepick({ startDate, setStartDate, endDate, setEndDate }) {
             value={startDate}
             minDate={today}
           />
-          <label className='fw-bold ms-2 me-2'>End Date: </label>
+          <label className='fw-bold ms-5'>End Date: </label>
           <DatePicker
             onChange={setEndDate}
             value={endDate}

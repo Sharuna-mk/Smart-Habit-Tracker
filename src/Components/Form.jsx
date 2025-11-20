@@ -92,17 +92,17 @@ function Form() {
   return (
     <>
 
-      <form>
+     
 
-        <div className='smartbg'>
+        <div style={{ backgroundColor: 'rgba(240, 244, 255, 0.75)'}}>
 
           <div className='d-flex  p-5 text-center justify-content-center'>
             <div className="card shadow"
               style={{
-                backgroundColor: "rgba(173, 216, 245, 0.2)",
+                backgroundColor: "rgba(184, 217, 239, 0.2)",
                 border: "2px solid rgba(255, 255, 255, 0.89)",
                 backdropFilter: "blur(5px)",
-                width: '500px'
+                width: '550px'
               }}>
               <div className="d-flex justify-content-start mt-2">
                 <Link to={'/home'} className='text-dark'><IoChevronBackOutline className='fw-bolder' style={{ fontSize: '25px' }} /></Link>
@@ -110,14 +110,16 @@ function Form() {
               <h3 className='text-center mt-3 fw-bold'>{details.emoji}
                 {details.name}
               </h3>
+              <form >
               <div className=" d-flex ">
+               
                 <span className='mt-4'>
                   <button type='button' className='btn border-0' onClick={() => setEmojiChoose()}>
                     <Addemoji chosenEmoji={details.emoji}
                       setChosenEmoji={(emoji) => setDetails({ ...details, emoji })}
                       showPicker={showPicker} setShowPicker={setShowPicker} />
                   </button>
-                  <p className='text-danger'>{emojiChoose}</p>
+                  <p className='text-danger ms-4'>{emojiChoose}</p>
                 </span>
 
                 <div className='w-100'>
@@ -160,7 +162,7 @@ function Form() {
                       onClick={() => setActiveBtn('first')} >
                       <span>Build</span>
                     </button>
-                    <button type='button'
+                    <button type='button' className='ms-5'
                       onClick={() => setActiveBtn('second')}>
                       <span>Quit</span>
                     </button>
@@ -297,11 +299,12 @@ function Form() {
                   onClick={handleSubmit}
                   style={{ backgroundColor: '#4b93f8ff', width: '80px' }}>Save</button>
               </div>
+              </form>
             </div>
           </div>
         </div>
         <ToastContainer />
-      </form>
+      
 
     </>
   )
