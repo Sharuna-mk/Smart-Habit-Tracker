@@ -3,8 +3,6 @@ import Landingpage from './Pages/Landingpage'
 import Pnf from './Pages/Pnf'
 import Form from './Components/Form'
 import { Route,Routes } from 'react-router-dom'
-import Login from './Pages/Login'
-import Signup from './Pages/Signup'
 import Protectedroute from './Pages/Protectedroute'
 import { UserAuthContextProvider } from './context/Userauthcontext'
 import Updatetask from './Pages/Updatetask'
@@ -12,7 +10,10 @@ import Update from './Pages/update/Update'
 import Taskcalendar from './Components/Taskcalendar'
 import NotificationList from './Pages/NotificationList'
 import About from './Pages/About'
-import ResetPass from './Pages/ResetPass'
+import Login from './auth/Login'
+import Signup from './auth/Signup'
+import ResetPass from './auth/ResetPass'
+
 
 function App() {
 
@@ -20,7 +21,7 @@ function App() {
   return (
     <>
     
-  
+ 
     <UserAuthContextProvider>
       <Routes>
       <Route path='/login' element={<Login/>}/>

@@ -8,7 +8,7 @@ import {
     signInWithPopup, sendPasswordResetEmail
 } from "firebase/auth";
 import { auth } from "../firebase";
-
+//share data across entire app without passing props manually through every component.
 const UserAuthContext = createContext();
 
 export function UserAuthContextProvider({ children }) {
@@ -42,6 +42,7 @@ export function UserAuthContextProvider({ children }) {
         return () => unsubscribe()
 
     }, []);
+    //makes authentication data and functions available to the entire app.
     return (<UserAuthContext.Provider value={{ user, signUp, logIn, logOut, googleSignIn, resetPassword }}>{children}</UserAuthContext.Provider>)
 }
 export function useUserAuth() {

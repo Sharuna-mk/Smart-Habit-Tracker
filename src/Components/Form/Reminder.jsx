@@ -15,25 +15,6 @@ function Reminder({ details, reminder, setReminder }) {
     setReminder(time);
   };
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     const now = new Date();
-  //     const [remHour, remMin] = time.split(":").map(Number);
-
-  //     const currentHour = now.getHours();
-  //     const currentMinute = now.getMinutes();
-
-  //     if (currentHour === remHour && currentMinute === remMin && !firedRef.current) {
-  //       toast.info(`Get started !You have to complete `, { position: "top-center" });
-  //       firedRef.current = true;
-  //     } else if (currentHour !== remHour || currentMinute !== remMin) {
-  //       firedRef.current = false; // reset for next day
-  //     }
-  //   }, 1000);
-
-  //   return () => clearInterval(interval);
-  // }, [time]);
-
 
   return (
     <>
